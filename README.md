@@ -79,3 +79,24 @@ add a new stage to your Jenkinsfile indicating building the docker image
 Go back to managed jenkins
 click on credentials
 click on add credentials
+add your dockerhub username and password
+give it an ID
+Click on save
+
+#### Installing docker on your server by running the following commands
+sudo yum update -y && sudo yum install -y docker
+sudo systemctl start docker
+sudo usermod -aG docker ec2-user
+
+logout of the server and ssh again
+run the command docker ps to see if you can run docker commands without sudo
+check if you can run docker commands in jenkins by switching to jenkins using the command
+sudo su -s /bin/bash jenkins
+run docker ps.
+you will have permission denied
+if you use sudo docker ps you will be asked to input a password
+
+To avoid these error
+get into the sudo file and add jenkins in docker
+sudo visudo
+
